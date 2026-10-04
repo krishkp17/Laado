@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Navbar from './component/Navbar';
 import Hero from './pages/Hero';
@@ -7,19 +6,31 @@ import About from './pages/About';
 import Menu from './pages/Menu';
 import Price from './pages/Price';
 import Contact from './pages/Contact';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
-    <Router>
+    <div className="font-sans">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/price" element={<Price />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </Router>
+
+      
+      <main>
+        <Hero />
+        <About />
+        <Menu />
+        <Price />
+        <Contact />
+      </main>
+
+      <ToastContainer position="top-center" autoClose={3000} theme="colored" />
+
+      
+      <footer className="bg-gray-900 text-white py-6 text-center text-sm">
+        <p>© {new Date().getFullYear()} Mess Delight. All rights reserved.</p>
+      </footer>
+    </div>
   );
 }
 
